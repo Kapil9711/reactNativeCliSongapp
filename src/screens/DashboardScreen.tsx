@@ -1,27 +1,20 @@
 import {View, Text} from 'react-native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {useSelector} from 'react-redux';
+import DashboardHome from '../container/dashboard/DashboardHome';
+import DashboardLayout from '../layouts/DashboardLayout';
 
 const DashboardStack = createNativeStackNavigator();
 
 const DashboardScreen = () => {
   return (
-    <DashboardStack.Navigator
-      screenOptions={{headerShown: false}}
-      initialRouteName="DashboardHome">
-      <DashboardStack.Screen name="DashboardHome" component={DashboardHome} />
-      <DashboardStack.Screen name="Favorite" component={Favorite} />
-    </DashboardStack.Navigator>
-  );
-};
-
-const DashboardHome = () => {
-  const {user, isLoggedIn} = useSelector((store: any) => store.auth);
-  console.log(user, isLoggedIn);
-  return (
-    <View>
-      <Text>Dashboard home</Text>
-    </View>
+    <DashboardLayout>
+      <DashboardStack.Navigator
+        screenOptions={{headerShown: false}}
+        initialRouteName="DashboardHome">
+        <DashboardStack.Screen name="DashboardHome" component={DashboardHome} />
+        <DashboardStack.Screen name="Favorite" component={Favorite} />
+      </DashboardStack.Navigator>
+    </DashboardLayout>
   );
 };
 
