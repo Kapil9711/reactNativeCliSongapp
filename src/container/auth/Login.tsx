@@ -1,12 +1,16 @@
 import React, {useRef} from 'react';
 import {TouchableOpacity} from 'react-native';
-import {Button, Input, Text, XStack, YStack} from 'tamagui';
+import {Button, Input, Spinner, Text, View, XStack, YStack} from 'tamagui';
 import {useLoginUserMutation} from './authApi';
+import {useDispatch, useSelector} from 'react-redux';
+import AuthButton from './common';
+import {setIsLoading} from '../../redux/slices/authSlice';
 
 const Login = ({navigation}: any) => {
   const [loginUser] = useLoginUserMutation();
-
   const userInput = useRef({email: '', password: ''});
+
+  const dispatch = useDispatch();
 
   const handleSubmit = () => {
     let {email, password} = userInput.current;
@@ -15,6 +19,7 @@ const Login = ({navigation}: any) => {
 
     if (email && password) {
       const userData = {email, password};
+      dispatch(setIsLoading(true));
       loginUser(userData);
     }
   };
@@ -49,18 +54,11 @@ const Login = ({navigation}: any) => {
             <Text fontSize={11} color={'white'}>
               Do Not Have An Account,{' '}
             </Text>
-            <TouchableOpacity onPress={() => navigation.navigate('register')}>
+            <TouchableOpacity onPress={() => navigation.navigate('Register')}>
               <Text color={'yellow'}>Register</Text>
             </TouchableOpacity>
           </XStack>
-
-          <Button
-            onPress={handleSubmit}
-            backgroundColor="green"
-            color={'white'}
-            fontSize={18}>
-            Log-In
-          </Button>
+          <AuthButton title="Log-In" handleSubmit={handleSubmit} />
         </YStack>
       </YStack>
     </YStack>

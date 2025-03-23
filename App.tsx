@@ -13,6 +13,7 @@ import AuthScreen from './src/screens/AuthScreen';
 // redux
 import {Provider} from 'react-redux';
 import {store} from './src/redux/store';
+import DashboardScreen from './src/screens/DashboardScreen';
 
 // toast
 
@@ -27,6 +28,7 @@ const App = () => {
             <RootStack.Navigator screenOptions={{headerShown: false}}>
               <RootStack.Screen name="Home" component={HomeScreen} />
               <RootStack.Screen name="Auth" component={AuthScreen} />
+              <RootStack.Screen name="Dashboard" component={DashboardScreen} />
             </RootStack.Navigator>
           </NavigationContainer>
         </Provider>

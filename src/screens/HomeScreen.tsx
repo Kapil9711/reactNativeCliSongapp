@@ -5,8 +5,13 @@ import {Spinner, YStack} from 'tamagui';
 import {asyncHelper} from '../utils/asyncStorageHelper';
 import {useDispatch} from 'react-redux';
 import {login} from '../redux/slices/authSlice';
+import {globalNavigation} from '../data/globalNavigation';
 const HomeScreen = ({navigation}: any) => {
   const dispatch = useDispatch();
+
+  if (!globalNavigation.navigation) {
+    globalNavigation.navigation = navigation;
+  }
 
   const loginUser = async () => {
     const user = await asyncHelper.getData('user');
