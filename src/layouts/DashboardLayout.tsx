@@ -5,9 +5,11 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 
 const DashboardLayout = ({children}: any) => {
   return (
-    <SafeAreaView style={{flex: 1}}>
-      <Header />
-      {children}
+    <SafeAreaView style={{flex: 1, backgroundColor: 'black', paddingTop: 15}}>
+      <View>
+        <Header />
+        {children}
+      </View>
     </SafeAreaView>
   );
 };

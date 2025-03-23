@@ -39,9 +39,17 @@ const CustomDrawer = () => {
 
   return (
     <View style={styles.container}>
-      <StatusBar barStyle={'dark-content'} />
+      <StatusBar barStyle={'default'} hidden />
       {/* Button to Open Drawer */}
-      <TouchableOpacity onPress={openDrawer}>
+      <TouchableOpacity
+        style={{
+          backgroundColor: 'white',
+          borderRadius: 100,
+          padding: 4,
+          marginLeft: 10,
+          position: 'absolute',
+        }}
+        onPress={openDrawer}>
         {/* bars */}
 
         <Icon name="bars" size={40} />

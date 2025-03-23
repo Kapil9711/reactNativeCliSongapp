@@ -1,16 +1,15 @@
 import React from 'react';
-import {Text, View} from 'tamagui';
+import {Input, Text, View, XStack} from 'tamagui';
 import CustomDrawer from './CustomDrawer';
 
 const Header = () => {
   return (
-    <View
-      height={60}
-      justifyContent="center"
-      alignItems="center"
-      flexDirection="row">
-      <CustomDrawer />
-      <Text>Header</Text>
+    <View height={60}>
+      <XStack justifyContent="flex-start" alignItems="center">
+        <CustomDrawer />
+        <Input width={'60%'} />
+        <View width={'16%'}></View>
+      </XStack>
     </View>
   );
 };
