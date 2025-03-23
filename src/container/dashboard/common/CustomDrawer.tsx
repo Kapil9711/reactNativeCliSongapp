@@ -48,6 +48,7 @@ const CustomDrawer = () => {
           padding: 4,
           marginLeft: 10,
           position: 'absolute',
+          top: 25,
         }}
         onPress={openDrawer}>
         {/* bars */}
@@ -83,6 +84,8 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'flex-start',
+    position: 'relative',
+    top: -50,
   },
   openButton: {
     backgroundColor: '#007bff',
