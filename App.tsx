@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 
 //provider
 import SafeAreaViewProvider from './src/providers/SafeAreaViewProvider';
@@ -15,11 +15,21 @@ import {Provider} from 'react-redux';
 import {store} from './src/redux/store';
 import DashboardScreen from './src/screens/DashboardScreen';
 
+import TrackPlayer from 'react-native-track-player';
+
 // toast
 
 const RootStack = createNativeStackNavigator();
 
 const App = () => {
+  useEffect(() => {
+    const checkService = async () => {
+      const isRunning = await TrackPlayer.isServiceRunning();
+      console.log('Is service running?:', isRunning);
+    };
+    checkService();
+  }, []);
+
   return (
     <SafeAreaViewProvider>
       <TamaguiProviderContext>
